@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
+import { ArrowDown, Code2 } from 'lucide-react'
+import { personalProfile } from '../../data/resumeData'
 
 export function HeroContent() {
   return (
@@ -25,10 +26,10 @@ export function HeroContent() {
         transition={{ delay: 0.6, duration: 1.0 }}
         className="mx-auto flex flex-col items-center gap-2 select-none"
       >
-        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md">
-          <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#ffffff] animate-pulse" />
+        <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md">
+          <Code2 className="w-3.5 h-3.5 text-white" />
           <span className="font-mono text-[9px] tracking-[0.35em] text-[#BFC2C5] uppercase">
-            SECTOR 01 // DEEP LUNAR HARMONICS
+            SOFTWARE ENGINEER // AI & FULL-STACK SYSTEMS
           </span>
         </div>
         <div className="w-[1px] h-8 bg-gradient-to-b from-white/40 via-white/10 to-transparent" />
@@ -46,15 +47,15 @@ export function HeroContent() {
           <div className="flex items-center gap-2 mb-2">
             <span className="w-4 h-[1px] bg-white/40" />
             <p className="font-mono text-xs sm:text-sm tracking-[0.3em] text-[#777777] uppercase">
-              WE ARE
+              HELLO, I AM
             </p>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-white uppercase leading-[1.02]">
-            NEXUS <span className="font-semibold text-gradient">AI CLUB</span>
+            GAURAV <span className="font-semibold text-gradient">RAJAWAT</span>
           </h1>
           <p className="font-mono text-xs sm:text-sm tracking-[0.22em] text-[#BFC2C5] uppercase mt-3">
-            A COMMUNITY OF <br className="hidden sm:inline" />
-            INNOVATORS & BUILDERS
+            ARCHITECTING SCALABLE CLOUD <br className="hidden sm:inline" />
+            & GENERATIVE INTELLIGENCE SYSTEMS
           </p>
         </motion.div>
 
@@ -66,11 +67,11 @@ export function HeroContent() {
           className="flex flex-col md:items-end md:text-right"
         >
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white uppercase leading-[1.1]">
-            BUILDING <span className="font-normal italic tracking-normal text-white">THE FUTURE</span> <br />
-            OF <span className="font-light italic text-[#E0E2E5]">ARTIFICIAL</span> INTELLIGENCE
+            ENGINEERING <span className="font-normal italic tracking-normal text-white">THE FUTURE</span> <br />
+            WITH <span className="font-light italic text-[#E0E2E5]">RIGOR &</span> CREATIVITY
           </h2>
           <div className="mt-5 flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-sm text-[#BFC2C5] font-mono text-[10px] tracking-[0.25em] uppercase">
-            <span>SCROLL TO EXPLORE</span>
+            <span>EXPLORE RESUME & PROJECTS</span>
             <ArrowDown className="w-3.5 h-3.5 animate-bounce text-white" />
           </div>
         </motion.div>
