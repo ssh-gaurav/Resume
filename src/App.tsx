@@ -96,6 +96,7 @@ export function App() {
         <Navbar
           onOpenMenu={() => setIsMenuOpen(true)}
           onOpenTalk={() => setIsTalkOpen(true)}
+          onOpenResume={() => setIsJoinOpen(true)}
         />
       )}
 

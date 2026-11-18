@@ -1,9 +1,22 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { personalProfile } from '../data/resumeData'
 
 export const metadata: Metadata = {
-  title: 'AI CLUB — Building The Future',
-  description: 'AI CLUB — Building The Future with research, intelligence, and community.',
+  title: `${personalProfile.name} — AI & Full-Stack Engineer | Interactive 3D Resume`,
+  description: `${personalProfile.name} is an AI & Full-Stack Software Engineer specializing in scalable web systems, generative intelligence, and high-performance interactive experiences.`,
+  keywords: [
+    'Gaurav Rajawat',
+    'Resume',
+    'Portfolio',
+    'AI Engineer',
+    'Full Stack Developer',
+    'Next.js',
+    'Three.js',
+    'React',
+    'Software Engineer',
+  ],
+  authors: [{ name: personalProfile.name, url: personalProfile.socials.github }],
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23050505' stroke='%23ffffff' stroke-width='4'/><polygon points='50,20 75,75 25,75' fill='%23ffffff'/></svg>",
   },
