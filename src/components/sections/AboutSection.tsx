@@ -2,15 +2,9 @@ import { Canvas } from '@react-three/fiber'
 import { motion } from 'framer-motion'
 import { NeuralNetwork3D } from '../3d/NeuralNetwork3D'
 import { Network, ShieldCheck, Zap } from 'lucide-react'
+import { personalProfile } from '../../data/resumeData'
 
 export function AboutSection() {
-  const stats = [
-    { label: 'STUDENT RESEARCHERS', value: '450+', metric: 'ACTIVE MINDS' },
-    { label: 'MODELS DEPLOYED', value: '38', metric: 'PRODUCTION SOTA' },
-    { label: 'COMPUTE CLUSTERS', value: '1.2 PF', metric: 'GPU ACCELERATION' },
-    { label: 'PAPERS & AWARDS', value: '19', metric: 'CONFERENCE PEER' },
-  ]
-
   return (
     <section id="about" className="relative w-full min-h-screen py-24 sm:py-32 px-6 sm:px-10 md:px-16 bg-[#050505] text-white border-t border-white/10 overflow-hidden">
       {/* Subtle ambient grid and decorative crosshairs */}
@@ -29,7 +23,7 @@ export function AboutSection() {
             <span className="absolute inset-0 rounded-full border border-white/40 animate-ping opacity-50" />
           </div>
           <span className="font-mono text-xs tracking-[0.3em] text-[#BFC2C5] uppercase">
-            02 // IDENTITY & REASONING
+            02 // IDENTITY & PHILOSOPHY
           </span>
         </div>
 
@@ -41,8 +35,8 @@ export function AboutSection() {
           transition={{ duration: 0.8 }}
           className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-white uppercase max-w-5xl leading-[1.02] mb-12"
         >
-          WE EXPLORE <br />
-          <span className="font-normal italic text-gradient">THE UNKNOWN.</span>
+          ARCHITECTING <br />
+          <span className="font-normal italic text-gradient">DIGITAL REALITIES.</span>
         </motion.h2>
 
         {/* Asymmetrical Grid: 3D Neural Network Simulation & Editorial Manifestos */}
@@ -52,12 +46,12 @@ export function AboutSection() {
             <div className="absolute top-4 left-5 z-10 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-white animate-pulse shadow-[0_0_8px_#ffffff]" />
               <span className="font-mono text-[10px] tracking-widest text-[#BFC2C5] uppercase">
-                LATENT TOPOLOGY // LIVE R3F
+                COGNITIVE TOPOLOGY // LIVE R3F
               </span>
             </div>
 
             <div className="absolute bottom-4 right-5 z-10 font-mono text-[9px] text-[#777777] tracking-widest uppercase bg-black/40 px-2 py-0.5 rounded border border-white/5 backdrop-blur-sm">
-              INTERACTIVE SYNAPTIC GRAPH
+              SYNAPTIC GRAPH COMPUTATION
             </div>
 
             {/* Interactive 3D Canvas */}
@@ -73,7 +67,7 @@ export function AboutSection() {
             </Canvas>
           </div>
 
-          {/* Right Column: Editorial Vision, Mission, Community */}
+          {/* Right Column: Editorial Vision, Mission, Personal Bio */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-8">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -84,13 +78,13 @@ export function AboutSection() {
             >
               <h3 className="font-mono text-xs tracking-[0.25em] text-[#BFC2C5] uppercase flex items-center gap-2">
                 <Network className="w-3.5 h-3.5 text-white" />
-                OUR CORE MANIFESTO
+                ENGINEERING PROFILE
               </h3>
               <p className="text-base sm:text-lg text-[#D1D5DB] font-light leading-relaxed">
-                Nexus is not a standard computer club or paper reading circle. We operate as an autonomous student skunkworks incubator, synthesizing cutting-edge theory into tangible models, autonomous agents, and embodied intelligence.
+                {personalProfile.bioShort}
               </p>
               <p className="text-sm text-[#9CA3AF] font-light leading-relaxed">
-                From deciphering the loss landscapes of billion-parameter transformers to designing low-power edge vision microcontrollers, our members bridge academic rigor with unconstrained hacker creativity.
+                {personalProfile.bioDetailed}
               </p>
             </motion.div>
 
@@ -99,20 +93,20 @@ export function AboutSection() {
               <div className="p-5 rounded-xl border border-white/10 bg-[#0e0f13] hover:border-white/30 hover:bg-[#13141a] transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(255,255,255,0.05)]">
                 <Zap className="w-4 h-4 text-white mb-2" />
                 <h4 className="font-mono text-xs uppercase tracking-wider text-white mb-1">
-                  AUTONOMOUS RESEARCH
+                  INTELLIGENCE SYSTEMS
                 </h4>
                 <p className="text-xs text-[#888890] leading-relaxed">
-                  Undergrads driving publishable investigations in diffusion, alignment, and cognitive architectures.
+                  End-to-end LLM fine-tuning, RAG retrieval pipelines, multi-agent frameworks, and real-time inference acceleration.
                 </p>
               </div>
 
               <div className="p-5 rounded-xl border border-white/10 bg-[#0e0f13] hover:border-white/30 hover:bg-[#13141a] transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(255,255,255,0.05)]">
                 <ShieldCheck className="w-4 h-4 text-white mb-2" />
                 <h4 className="font-mono text-xs uppercase tracking-wider text-white mb-1">
-                  PRODUCTION SYSTEMS
+                  FULL-STACK RESILIENCE
                 </h4>
                 <p className="text-xs text-[#888890] leading-relaxed">
-                  Deploying resilient inference pipelines and distributed nodes for real collegiate and civic challenges.
+                  Type-safe scalable architectures with Next.js, React 19, distributed microservices, Docker, and low-latency databases.
                 </p>
               </div>
             </div>
@@ -121,7 +115,7 @@ export function AboutSection() {
 
         {/* Live Metrics Row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16 pt-12 border-t border-white/10">
-          {stats.map((stat, idx) => (
+          {personalProfile.stats.map((stat, idx) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}

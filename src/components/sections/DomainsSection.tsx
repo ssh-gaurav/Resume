@@ -1,98 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import {
-  Brain,
-  Eye,
-  MessageSquare,
-  Bot,
-  Layers,
-  Sparkles,
-  ArrowRight,
-  Code2,
-} from 'lucide-react'
-
-interface DomainItem {
-  id: string
-  title: string
-  category: string
-  dimension: string
-  description: string
-  coreTech: string[]
-  icon: any
-  visualGeometry: string
-}
-
-const domains: DomainItem[] = [
-  {
-    id: 'genai',
-    title: 'Generative AI & Diffusion',
-    category: 'SYNTHESIS & LATENT MANIFOLDS',
-    dimension: 'DIMENSION 01 // LATENT',
-    description:
-      'Exploring conditional score-based diffusion, latent consistency models, flow matching, and autoregressive multi-modal architectures for rapid creative synthesis.',
-    coreTech: ['Flow Matching', 'SDXL', 'Latent Diffusion', 'Transformer Decoders'],
-    icon: Sparkles,
-    visualGeometry: 'TORUS_KNOT',
-  },
-  {
-    id: 'llm_nlp',
-    title: 'Natural Language Processing',
-    category: 'SEMANTIC REASONING',
-    dimension: 'DIMENSION 02 // EMBEDDINGS',
-    description:
-      'Developing quantized reasoning pipelines, parameter-efficient fine-tuning (LoRA/QLoRA), retrieval-augmented generation (RAG), and agentic memory buffers.',
-    coreTech: ['Llama-3 Fine-tuning', 'Vector Indices', 'FlashAttention-3', 'Chain-of-Thought'],
-    icon: MessageSquare,
-    visualGeometry: 'HYPERCUBE',
-  },
-  {
-    id: 'cv',
-    title: 'Computer Vision & NeRFs',
-    category: 'SPATIAL RECONSTRUCTION',
-    dimension: 'DIMENSION 03 // VOXELS',
-    description:
-      'Transforming 2D imagery into continuous 3D neural radiance fields, 3D Gaussian Splatting, zero-shot segmentation, and real-time edge object tracking.',
-    coreTech: ['Gaussian Splatting', 'Segment Anything 2', 'NeRFs', 'Spatial Pose Estimators'],
-    icon: Eye,
-    visualGeometry: 'ICOSAHEDRON',
-  },
-  {
-    id: 'robotics',
-    title: 'Autonomous Robotics',
-    category: 'EMBODIED COGNITION',
-    dimension: 'DIMENSION 04 // ACTUATION',
-    description:
-      'Synthesizing computer vision with reinforcement learning to orchestrate legged robotics, robotic manipulators, and autonomous micro-drones.',
-    coreTech: ['ROS 2', 'MuJoCo Sim', 'PPO Reinforcement', 'Jetson Orin Compute'],
-    icon: Bot,
-    visualGeometry: 'GYROSCOPE',
-  },
-  {
-    id: 'deep_learning',
-    title: 'Deep Learning & CUDA',
-    category: 'HIGH-PERFORMANCE COMPUTE',
-    dimension: 'DIMENSION 05 // TENSORS',
-    description:
-      'Benchmarking custom Triton and CUDA kernels, tensor parallel training rigs, FP8 quantization schemes, and gradient descent optimization research.',
-    coreTech: ['PyTorch 2.5', 'CUDA 12', 'Triton Kernels', 'Distributed FSDP'],
-    icon: Layers,
-    visualGeometry: 'OCTAHEDRON',
-  },
-  {
-    id: 'ml_ai',
-    title: 'Machine Learning Theory',
-    category: 'STATISTICAL FOUNDATIONS',
-    dimension: 'DIMENSION 06 // PROBABILITY',
-    description:
-      'Investigating loss surface geometries, generalization bounds, information theory in representations, and interpretable mechanistic interpretability.',
-    coreTech: ['Information Theory', 'Mechanistic Circuits', 'Bayesian ML', 'Kernel Methods'],
-    icon: Brain,
-    visualGeometry: 'DODECAHEDRON',
-  },
-]
+import { ArrowRight, Code2 } from 'lucide-react'
+import { skillDomains, type DomainSkill } from '../../data/resumeData'
 
 export function DomainsSection() {
-  const [activeDomain, setActiveDomain] = useState<DomainItem>(domains[0])
+  const [activeDomain, setActiveDomain] = useState<DomainSkill>(skillDomains[0])
 
   return (
     <section id="domains" className="relative w-full min-h-screen py-24 sm:py-32 px-6 sm:px-10 md:px-16 bg-[#060709] text-white border-t border-white/10 overflow-hidden">
@@ -107,7 +19,7 @@ export function DomainsSection() {
             <span className="absolute inset-0 rounded-full border border-white/40 animate-ping opacity-50" />
           </div>
           <span className="font-mono text-xs tracking-[0.3em] text-[#BFC2C5] uppercase">
-            03 // TECHNICAL RESEARCH TRACKS
+            03 // TECHNICAL COMPETENCIES & STACK
           </span>
         </div>
 
@@ -118,15 +30,15 @@ export function DomainsSection() {
           transition={{ duration: 0.8 }}
           className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-white uppercase max-w-5xl leading-[1.02] mb-12"
         >
-          INTELLIGENCE HAS <br />
-          <span className="font-normal italic text-gradient">MANY DIMENSIONS.</span>
+          TECHNICAL MASTERY <br />
+          <span className="font-normal italic text-gradient">ACROSS DIMENSIONS.</span>
         </motion.h2>
 
         {/* Interactive Dimensional Environment */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left: Interactive Domain Navigation List */}
           <div className="lg:col-span-5 flex flex-col space-y-2.5">
-            {domains.map((item, idx) => {
+            {skillDomains.map((item, idx) => {
               const Icon = item.icon
               const isActive = activeDomain.id === item.id
 
@@ -186,7 +98,7 @@ export function DomainsSection() {
                     </span>
                   </div>
                   <span className="font-mono text-[10px] tracking-widest text-[#777777] uppercase">
-                    RENDER PROTOCOL // ACTIVE
+                    SYSTEM STATUS // ACTIVE
                   </span>
                 </div>
 
@@ -201,7 +113,7 @@ export function DomainsSection() {
                   <div className="relative z-10 flex flex-col items-center">
                     <activeDomain.icon className="w-16 h-16 text-white stroke-[1.2] drop-shadow-[0_0_25px_rgba(255,255,255,0.6)] animate-bounce" />
                     <span className="font-mono text-[11px] tracking-[0.3em] text-[#BFC2C5] uppercase mt-4">
-                      {activeDomain.visualGeometry} // GEOMETRIC CORE
+                      {activeDomain.visualGeometry} // CORE PRIMITIVES
                     </span>
                   </div>
 
@@ -224,7 +136,7 @@ export function DomainsSection() {
                   <div className="pt-4 border-t border-white/10">
                     <h5 className="font-mono text-[10px] tracking-widest text-[#BFC2C5] uppercase mb-3 flex items-center gap-2">
                       <Code2 className="w-3.5 h-3.5 text-white" />
-                      SPECIALIZED TOOLCHAIN & PRIMITIVES
+                      CORE FRAMEWORKS & TECHNOLOGIES
                     </h5>
                     <div className="flex flex-wrap gap-2">
                       {activeDomain.coreTech.map((tech) => (
