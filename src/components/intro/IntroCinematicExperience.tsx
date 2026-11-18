@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { SpaceJourneyScene, type JourneyPhase } from './SpaceJourneyScene'
 import { ArrowUpRight, FastForward, ShieldAlert } from 'lucide-react'
 import { cinematicAudio } from '../../utils/cinematicAudio'
+import { personalProfile } from '../../data/resumeData'
 
 interface IntroCinematicExperienceProps {
   onEnterMainSite: () => void
@@ -58,11 +59,11 @@ export function IntroCinematicExperience({ onEnterMainSite }: IntroCinematicExpe
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-white animate-ping" />
             <span className="font-mono text-xs tracking-[0.25em] text-[#BFC2C5] uppercase">
-              {phase === 'idle' && 'NEXUS EXPEDITION // ORBITAL DEEP SPACE'}
-              {phase === 'pull' && 'WARNING // GRAVITATIONAL ANOMALY DETECTED'}
-              {phase === 'event_horizon' && 'CRITICAL // CROSSING EVENT HORIZON'}
-              {phase === 'wormhole' && 'RELATIVISTIC WARP // DIMENSIONAL TRANSIT'}
-              {phase === 'emerge' && 'EMERGING INTO NEW HORIZON'}
+              {phase === 'idle' && `${personalProfile.name.toUpperCase()} // INTERACTIVE 3D RESUME`}
+              {phase === 'pull' && 'SYNCHRONIZING // CORE ARCHITECTURE INGESTION'}
+              {phase === 'event_horizon' && 'CROSSING // EVENT HORIZON TRANSIT'}
+              {phase === 'wormhole' && 'DIMENSIONAL RELATIVITY // LOADING ASSETS'}
+              {phase === 'emerge' && 'EMERGING INTO MAIN RESUME PORTAL'}
             </span>
           </div>
 
@@ -71,7 +72,7 @@ export function IntroCinematicExperience({ onEnterMainSite }: IntroCinematicExpe
             onClick={handleSkip}
             className="group flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white text-white hover:text-black border border-white/20 transition-all duration-300 font-mono text-xs tracking-wider uppercase backdrop-blur-md cursor-pointer active:scale-95"
           >
-            <span>SKIP INTRO</span>
+            <span>ENTER RESUME DIRECTLY</span>
             <FastForward className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
           </button>
         </div>
@@ -85,9 +86,9 @@ export function IntroCinematicExperience({ onEnterMainSite }: IntroCinematicExpe
             animate={{ opacity: 1, scale: 1 }}
             className="relative z-20 mx-auto text-center pointer-events-none"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-300 font-mono text-xs tracking-widest uppercase mb-2">
-              <ShieldAlert className="w-3.5 h-3.5 animate-pulse" />
-              GRAVITATIONAL CAPTURE INEVITABLE
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/30 text-white font-mono text-xs tracking-widest uppercase mb-2">
+              <ShieldAlert className="w-3.5 h-3.5 animate-pulse text-white" />
+              SYSTEM TRAJECTORY SYNCHRONIZED
             </div>
           </motion.div>
         )}
@@ -105,10 +106,10 @@ export function IntroCinematicExperience({ onEnterMainSite }: IntroCinematicExpe
             {/* Tagline */}
             <div>
               <p className="font-mono text-[11px] tracking-[0.25em] text-[#777777] uppercase mb-1">
-                SECTOR 00 // DEEP SPACE EXPEDITION
+                SECTOR 00 // {personalProfile.title}
               </p>
               <h2 className="font-display text-2xl sm:text-3xl font-light text-white tracking-tight uppercase">
-                YOUR JOURNEY BEGINS HERE
+                {personalProfile.name} // PORTFOLIO
               </h2>
             </div>
 
@@ -117,7 +118,7 @@ export function IntroCinematicExperience({ onEnterMainSite }: IntroCinematicExpe
               onClick={handleStart}
               className="group px-8 sm:px-10 py-4 rounded-full bg-white text-black font-mono text-xs sm:text-sm font-semibold tracking-widest uppercase flex items-center gap-3 transition-all duration-300 hover:bg-[#BFC2C5] hover:scale-105 active:scale-95 shadow-[0_0_35px_rgba(255,255,255,0.25)] cursor-pointer"
             >
-              <span>INITIATE JOURNEY</span>
+              <span>ENTER EXPERIENCE</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
           </motion.div>
