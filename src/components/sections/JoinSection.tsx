@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
-import { GithubIcon, TwitterIcon, LinkedinIcon, DiscordIcon } from '../ui/Icons'
+import { ArrowUpRight, Mail } from 'lucide-react'
+import { GithubIcon, TwitterIcon, LinkedinIcon } from '../ui/Icons'
+import { personalProfile } from '../../data/resumeData'
 
 interface JoinSectionProps {
   onOpenJoin: () => void
@@ -26,7 +27,7 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
             <span className="absolute inset-0 rounded-full border border-white/40 animate-ping opacity-60" />
           </div>
           <span className="font-mono text-xs tracking-[0.3em] text-[#BFC2C5] uppercase">
-            07 // HORIZON CALL
+            07 // INITIATE COLLABORATION
           </span>
         </div>
 
@@ -39,13 +40,13 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
             transition={{ duration: 0.9 }}
           >
             <h2 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tight text-white uppercase leading-[0.98] max-w-6xl">
-              THE FUTURE <br />
-              IS NOT WAITING. <br />
-              <span className="font-normal italic text-gradient">WE BUILD IT.</span>
+              LET'S BUILD <br />
+              SOMETHING REMARKABLE. <br />
+              <span className="font-normal italic text-gradient">HIRE OR CONNECT.</span>
             </h2>
           </motion.div>
 
-          {/* Prominent JOIN THE CLUB Button */}
+          {/* Prominent GET RESUME / HIRE Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -57,12 +58,20 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
               onClick={onOpenJoin}
               className="group px-8 sm:px-12 py-4 sm:py-5 rounded-full bg-white text-black font-mono text-sm font-semibold tracking-widest uppercase flex items-center gap-4 transition-all duration-300 hover:bg-[#E5E7EB] hover:scale-105 active:scale-95 shadow-[0_0_50px_rgba(255,255,255,0.25),0_0_100px_rgba(255,255,255,0.1)] cursor-pointer"
             >
-              <span>JOIN THE CLUB</span>
+              <span>GET RESUME // HIRE ME</span>
               <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
             </button>
 
+            <a
+              href={`mailto:${personalProfile.email}`}
+              className="px-6 py-4 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white font-mono text-xs tracking-wider uppercase flex items-center gap-2 transition-all duration-300"
+            >
+              <Mail className="w-4 h-4 text-white" />
+              <span>DIRECT EMAIL</span>
+            </a>
+
             <span className="font-mono text-xs tracking-widest text-[#BFC2C5] uppercase">
-              // APPLICATIONS REVIEWED WEEKLY
+              // {personalProfile.availability}
             </span>
           </motion.div>
         </div>
@@ -74,14 +83,14 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
             <div className="flex items-center gap-3">
               <div className="w-2.5 h-2.5 bg-white rotate-45 shadow-[0_0_8px_#ffffff]" />
               <span className="font-mono text-sm font-semibold tracking-[0.25em] text-white uppercase">
-                AI CLUB // NEXUS
+                {personalProfile.name} // PORTFOLIO
               </span>
             </div>
             <p className="text-xs text-[#9CA3AF] max-w-sm font-light leading-relaxed">
-              An elite collegiate hub for artificial intelligence exploration, algorithmic research, and autonomous systems. Designed with cinematic monochromatic precision.
+              AI & Full-Stack Software Engineer crafting scalable cloud platforms, intelligent neural pipelines, and interactive 3D web experiences.
             </p>
             <p className="font-mono text-[10px] tracking-widest text-[#BFC2C5] uppercase">
-              CAMPUS RESEARCH HUB // SECTOR 9 // LATENT GRID
+              {personalProfile.location}
             </p>
           </div>
 
@@ -91,19 +100,19 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
               [ ORIGIN ]
             </button>
             <button onClick={() => onNavigate('about')} className="hover:text-white transition-colors cursor-pointer">
-              [ ABOUT ]
+              [ PROFILE ]
             </button>
             <button onClick={() => onNavigate('domains')} className="hover:text-white transition-colors cursor-pointer">
-              [ DOMAINS ]
+              [ STACK ]
             </button>
             <button onClick={() => onNavigate('projects')} className="hover:text-white transition-colors cursor-pointer">
               [ PROJECTS ]
             </button>
             <button onClick={() => onNavigate('events')} className="hover:text-white transition-colors cursor-pointer">
-              [ EVENTS ]
+              [ EXPERIENCE ]
             </button>
             <button onClick={() => onNavigate('community')} className="hover:text-white transition-colors cursor-pointer">
-              [ TEAM ]
+              [ EDUCATION ]
             </button>
           </div>
 
@@ -111,7 +120,7 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
           <div className="md:col-span-3 flex md:flex-col md:items-end justify-between gap-4">
             <div className="flex items-center gap-4 text-[#BFC2C5]">
               <a
-                href="https://github.com"
+                href={personalProfile.socials.github}
                 target="_blank"
                 rel="noreferrer"
                 className="p-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
@@ -120,25 +129,7 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
                 <GithubIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://discord.com"
-                target="_blank"
-                rel="noreferrer"
-                className="p-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
-                title="Discord"
-              >
-                <DiscordIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://x.com"
-                target="_blank"
-                rel="noreferrer"
-                className="p-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
-                title="X / Twitter"
-              >
-                <TwitterIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com"
+                href={personalProfile.socials.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 className="p-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
@@ -146,10 +137,19 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
+              <a
+                href={personalProfile.socials.twitter}
+                target="_blank"
+                rel="noreferrer"
+                className="p-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
+                title="X / Twitter"
+              >
+                <TwitterIcon className="w-4 h-4" />
+              </a>
             </div>
 
             <span className="font-mono text-[9px] tracking-widest text-[#777777] uppercase">
-              © 2026 AI CLUB. ALL RIGHTS RESERVED.
+              © 2026 {personalProfile.name.toUpperCase()}. ALL RIGHTS RESERVED.
             </span>
           </div>
         </div>

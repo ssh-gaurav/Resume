@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ArrowUpRight, Globe, Terminal, Sparkles } from 'lucide-react'
+import { X, ArrowUpRight, Globe, Terminal, Sparkles, Mail } from 'lucide-react'
+import { personalProfile } from '../../data/resumeData'
 
 interface MenuOverlayProps {
   isOpen: boolean
@@ -9,13 +10,13 @@ interface MenuOverlayProps {
 }
 
 const menuItems = [
-  { id: 'hero', number: '01', title: 'ORIGIN', subtitle: 'LUNAR BASE & HERO' },
-  { id: 'about', number: '02', title: 'ABOUT US', subtitle: 'WE EXPLORE THE UNKNOWN' },
-  { id: 'domains', number: '03', title: 'DOMAINS', subtitle: 'INTELLIGENCE HAS MANY DIMENSIONS' },
-  { id: 'projects', number: '04', title: 'PROJECTS', subtitle: 'IDEAS INTO REALITY' },
-  { id: 'events', number: '05', title: 'EVENTS', subtitle: 'WHERE IDEAS COME TO LIFE' },
-  { id: 'community', number: '06', title: 'OUR COMMUNITY', subtitle: 'BUILT BY CURIOUS MINDS' },
-  { id: 'join', number: '07', title: 'JOIN US', subtitle: 'THE FUTURE IS NOT WAITING' },
+  { id: 'hero', number: '01', title: 'ORIGIN', subtitle: 'LUNAR VOYAGE & HERO' },
+  { id: 'about', number: '02', title: 'PROFILE', subtitle: 'PHILOSOPHY & BIOGRAPHY' },
+  { id: 'domains', number: '03', title: 'TECH STACK', subtitle: 'SKILLS & SYSTEM ARCHITECTURE' },
+  { id: 'projects', number: '04', title: 'PROJECTS', subtitle: 'FEATURED PRODUCTION BUILDS' },
+  { id: 'events', number: '05', title: 'EXPERIENCE', subtitle: 'CAREER TRAJECTORY & IMPACT' },
+  { id: 'community', number: '06', title: 'EDUCATION', subtitle: 'FOUNDATIONS & CERTIFICATIONS' },
+  { id: 'join', number: '07', title: 'HIRE ME', subtitle: 'CONTACT & RESUME DOSSIER' },
 ]
 
 export function MenuOverlay({ isOpen, onClose, onNavigate }: MenuOverlayProps) {
@@ -50,116 +51,77 @@ export function MenuOverlay({ isOpen, onClose, onNavigate }: MenuOverlayProps) {
             <div className="flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
               <span className="font-mono text-xs tracking-[0.25em] text-[#BFC2C5]">
-                AI CLUB // NAVIGATION DIRECTORY
+                {personalProfile.name.toUpperCase()} // RESUME DIRECTORY
               </span>
             </div>
 
             <button
               onClick={onClose}
-              className="group flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-xs font-mono tracking-widest uppercase transition-all duration-300 hover:bg-[#BFC2C5] active:scale-95"
+              className="group flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-xs font-mono tracking-widest uppercase transition-all duration-300 hover:bg-[#BFC2C5] active:scale-95 cursor-pointer"
             >
               <span>CLOSE</span>
-              <X className="w-3.5 h-3.5 transition-transform group-hover:rotate-90 duration-300" />
+              <X className="w-4 h-4" />
             </button>
           </div>
 
-          {/* Main Navigation Links */}
-          <div className="my-auto py-12 max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-8 flex flex-col gap-2">
+          {/* Main Navigation List */}
+          <div className="my-auto py-10 max-w-5xl w-full mx-auto">
+            <ul className="flex flex-col space-y-3 sm:space-y-4">
               {menuItems.map((item, index) => (
-                <motion.div
+                <motion.li
                   key={item.id}
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.08 * index, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="group relative cursor-pointer py-1.5"
-                  onClick={() => {
-                    onNavigate(item.id)
-                    onClose()
-                  }}
+                  transition={{ delay: 0.08 * index, duration: 0.5 }}
                 >
-                  <div className="flex items-baseline gap-4 md:gap-8">
-                    <span className="font-mono text-xs tracking-widest text-[#777777] group-hover:text-white transition-colors duration-300">
-                      {item.number}
-                    </span>
-                    <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-[#BFC2C5] group-hover:text-white transition-all duration-300 group-hover:translate-x-3">
-                      {item.title}
-                    </h2>
-                    <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 group-hover:-translate-y-1 transition-all duration-300 text-white ml-auto" />
-                  </div>
-                  <p className="font-mono text-[10px] tracking-widest text-[#777777] uppercase ml-8 md:ml-12 group-hover:text-[#BFC2C5] transition-colors">
-                    {item.subtitle}
-                  </p>
-                </motion.div>
+                  <button
+                    onClick={() => {
+                      onNavigate(item.id)
+                      onClose()
+                    }}
+                    className="group w-full flex items-center justify-between py-2 sm:py-3 border-b border-white/5 hover:border-white/40 transition-colors text-left cursor-pointer"
+                  >
+                    <div className="flex items-baseline gap-4 sm:gap-8">
+                      <span className="font-mono text-xs sm:text-sm text-[#777777] group-hover:text-white transition-colors">
+                        [{item.number}]
+                      </span>
+                      <span className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#E5E7EB] group-hover:text-white group-hover:translate-x-3 transition-all duration-300 uppercase">
+                        {item.title}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <span className="hidden md:inline-block font-mono text-[10px] tracking-widest text-[#777777] group-hover:text-[#BFC2C5] uppercase">
+                        {item.subtitle}
+                      </span>
+                      <div className="w-8 h-8 rounded-full border border-white/10 group-hover:border-white group-hover:bg-white flex items-center justify-center transition-all duration-300">
+                        <ArrowUpRight className="w-4 h-4 text-[#777777] group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                      </div>
+                    </div>
+                  </button>
+                </motion.li>
               ))}
-            </div>
-
-            {/* Sidebar info inside menu */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="md:col-span-4 border-l border-white/10 pl-8 hidden md:flex flex-col gap-8"
-            >
-              <div>
-                <h4 className="font-mono text-[11px] tracking-widest text-[#777777] uppercase mb-2">
-                  // IDENTITY
-                </h4>
-                <p className="text-sm font-light text-[#BFC2C5] leading-relaxed">
-                  Nexus AI Club is an autonomous collegiate collective pushing the frontier of artificial intelligence, machine learning, and synthetic cognition.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-mono text-[11px] tracking-widest text-[#777777] uppercase mb-2">
-                  // TELEMETRY
-                </h4>
-                <div className="font-mono text-xs text-[#777777] space-y-1">
-                  <p className="flex justify-between">
-                    <span>SYSTEM:</span>
-                    <span className="text-white">ONLINE 99.98%</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span>LOCATION:</span>
-                    <span className="text-white">CAMPUS // LAB 404</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span>LATENT COORD:</span>
-                    <span className="text-white">0x7F // SECTOR 9</span>
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-mono text-[11px] tracking-widest text-[#777777] uppercase mb-2">
-                  // NETWORK
-                </h4>
-                <div className="flex gap-4 font-mono text-xs text-[#BFC2C5]">
-                  <a href="#github" className="hover:text-white transition-colors">GH</a>
-                  <a href="#discord" className="hover:text-white transition-colors">DISCORD</a>
-                  <a href="#x" className="hover:text-white transition-colors">X.COM</a>
-                  <a href="#linkedin" className="hover:text-white transition-colors">LN</a>
-                </div>
-              </div>
-            </motion.div>
+            </ul>
           </div>
 
-          {/* Footer row */}
-          <div className="flex flex-col sm:flex-row items-center justify-between border-t border-white/10 pt-6 text-xs font-mono text-[#777777] gap-4">
+          {/* Bottom Telemetry Footer */}
+          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#777777]">
             <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2">
-                <Terminal className="w-3.5 h-3.5 text-white" />
-                TERMINAL READY
+              <span className="flex items-center gap-2 text-[#BFC2C5]">
+                <Globe className="w-3.5 h-3.5 text-white" />
+                {personalProfile.location}
               </span>
-              <span className="flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-white" />
-                NEURAL R3F ACCELERATED
-              </span>
+              <a
+                href={`mailto:${personalProfile.email}`}
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                {personalProfile.email}
+              </a>
             </div>
 
-            <div className="flex items-center gap-2">
-              <Globe className="w-3.5 h-3.5" />
-              <span>COLLEGE AI CLUB © 2026 // MONOCHROMATIC PROTOCOL</span>
+            <div className="flex items-center gap-4">
+              <span className="text-white">// {personalProfile.availability}</span>
             </div>
           </div>
         </motion.div>
@@ -167,4 +129,3 @@ export function MenuOverlay({ isOpen, onClose, onNavigate }: MenuOverlayProps) {
     </AnimatePresence>
   )
 }
-

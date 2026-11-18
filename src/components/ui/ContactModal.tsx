@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Send, CheckCircle2 } from 'lucide-react'
+import { X, Send, CheckCircle2, Mail } from 'lucide-react'
+import { personalProfile } from '../../data/resumeData'
 
 interface ContactModalProps {
   isOpen: boolean
@@ -12,7 +13,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: 'Project Collaboration',
+    subject: 'Full-time / Project Opportunity',
     message: '',
   })
 
@@ -36,8 +37,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     e.preventDefault()
     setSubmitted(true)
     setTimeout(() => {
-      // Keep state clear after closing
-    }, 2500)
+      setSubmitted(false)
+      onClose()
+    }, 2800)
   }
 
   return (
@@ -59,111 +61,110 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 p-2 rounded-full hover:bg-white/10 text-[#777777] hover:text-white transition-colors"
+              className="absolute top-5 right-5 p-2 rounded-full border border-white/10 hover:border-white text-[#BFC2C5] hover:text-white transition-colors cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
-            {/* Header */}
-            <div className="mb-6">
-              <span className="font-mono text-[10px] tracking-[0.25em] text-[#777777] uppercase block mb-1">
-                // TRANSMISSION TERMINAL
-              </span>
-              <h3 className="font-display text-2xl sm:text-3xl font-normal tracking-tight text-white">
-                LET'S TALK.
-              </h3>
-              <p className="text-xs text-[#BFC2C5] mt-1">
-                Connect with our lab leads for research partnerships, hackathons, or sponsorships.
-              </p>
-            </div>
-
             {submitted ? (
-              <div className="py-12 flex flex-col items-center text-center">
-                <CheckCircle2 className="w-12 h-12 text-white mb-4 animate-bounce" />
-                <h4 className="font-display text-xl text-white mb-2">SIGNAL TRANSMITTED</h4>
-                <p className="text-xs text-[#BFC2C5] max-w-xs font-mono">
-                  Your message has reached the core server. Our team will decrypt and respond within 24 hours.
+              <div className="py-12 flex flex-col items-center text-center space-y-4">
+                <CheckCircle2 className="w-12 h-12 text-white animate-bounce" />
+                <h3 className="font-display text-2xl font-light text-white">
+                  MESSAGE TRANSMITTED
+                </h3>
+                <p className="text-sm text-[#BFC2C5] font-light max-w-sm">
+                  Thank you for reaching out. I usually review and respond to inquiries within 24 hours.
                 </p>
-                <button
-                  onClick={onClose}
-                  className="mt-6 px-6 py-2.5 rounded-full bg-white text-black font-mono text-xs tracking-wider uppercase hover:bg-[#BFC2C5] transition-colors"
-                >
-                  RETURN TO BASE
-                </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label className="block font-mono text-[11px] uppercase tracking-wider text-[#777777] mb-1.5">
-                    NAME / AFFILIATION
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Dr. John Doe / Stanford AI Lab"
-                    className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-white/40 transition-colors"
-                  />
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-[#BFC2C5] uppercase block mb-1">
+                    COMMUNICATION PROTOCOL // DIRECT
+                  </span>
+                  <h3 className="font-display text-2xl font-light text-white">
+                    LET'S CONNECT
+                  </h3>
+                  <p className="text-xs text-[#888890] mt-1 font-light">
+                    Have an opportunity, proposal, or want to discuss technical systems? Send a message directly to {personalProfile.name}.
+                  </p>
                 </div>
 
-                <div>
-                  <label className="block font-mono text-[11px] uppercase tracking-wider text-[#777777] mb-1.5">
-                    COMMUNICATION CHANNEL (EMAIL)
-                  </label>
-                  <input
-                    required
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="john@institution.edu"
-                    className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-white/40 transition-colors"
-                  />
+                <div className="space-y-4 pt-2">
+                  <div>
+                    <label className="block font-mono text-[10px] tracking-wider uppercase text-[#BFC2C5] mb-1.5">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Jane Doe / Engineering Team"
+                      className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-sm text-white focus:outline-none focus:border-white transition-colors font-mono"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] tracking-wider uppercase text-[#BFC2C5] mb-1.5">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="name@company.com"
+                      className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-sm text-white focus:outline-none focus:border-white transition-colors font-mono"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] tracking-wider uppercase text-[#BFC2C5] mb-1.5">
+                      Subject
+                    </label>
+                    <select
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#13141a] border border-white/15 text-sm text-white focus:outline-none focus:border-white transition-colors font-mono"
+                    >
+                      <option>Full-Time Engineering Role</option>
+                      <option>Contract / Consulting Project</option>
+                      <option>AI / Machine Learning Collaboration</option>
+                      <option>Technical Advisory</option>
+                      <option>General Inquiries</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] tracking-wider uppercase text-[#BFC2C5] mb-1.5">
+                      Message
+                    </label>
+                    <textarea
+                      rows={3}
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Brief overview of the project, role, or discussion topic..."
+                      className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-sm text-white focus:outline-none focus:border-white transition-colors font-mono resize-none"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block font-mono text-[11px] uppercase tracking-wider text-[#777777] mb-1.5">
-                    TOPIC
-                  </label>
-                  <select
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors"
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <a
+                    href={`mailto:${personalProfile.email}`}
+                    className="text-xs font-mono text-[#888890] hover:text-white flex items-center gap-1.5 transition-colors"
                   >
-                    <option value="Project Collaboration">Research Collaboration</option>
-                    <option value="Sponsorship & Hackathon">Hackathon Sponsorship</option>
-                    <option value="Guest Lecture">Guest Lecture & Mentorship</option>
-                    <option value="General Inquiry">General Query</option>
-                  </select>
-                </div>
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Or email directly</span>
+                  </a>
 
-                <div>
-                  <label className="block font-mono text-[11px] uppercase tracking-wider text-[#777777] mb-1.5">
-                    MESSAGE PAYLOAD
-                  </label>
-                  <textarea
-                    required
-                    rows={3}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Detail your inquiry or collaboration proposal..."
-                    className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-white/40 transition-colors resize-none"
-                  />
-                </div>
-
-                <div className="pt-2 flex justify-end gap-3">
-                  <button
-                    type="button"
-                    onClick={onClose}
-                    className="px-5 py-2 rounded-full border border-white/15 text-xs font-mono tracking-wider uppercase text-[#BFC2C5] hover:text-white hover:border-white/30 transition-colors"
-                  >
-                    ABORT
-                  </button>
                   <button
                     type="submit"
-                    className="px-6 py-2.5 rounded-full bg-white text-black font-mono text-xs tracking-wider uppercase flex items-center gap-2 hover:bg-[#BFC2C5] active:scale-95 transition-all"
+                    className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white text-black font-mono text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#E5E7EB] transition-all cursor-pointer active:scale-95"
                   >
-                    <span>TRANSMIT</span>
+                    <span>TRANSMIT MESSAGE</span>
                     <Send className="w-3.5 h-3.5" />
                   </button>
                 </div>
