@@ -1,3 +1,4 @@
+import { useScrollLock } from '../../hooks/useScrollLock'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Search, Plus, Check, Loader2, Link2, Star, GitFork, AlertCircle } from 'lucide-react'
@@ -43,18 +44,16 @@ export function GitHubImportModal({
   const [urlError, setUrlError] = useState<string | null>(null)
   const [draftProject, setDraftProject] = useState<ResumeProject | null>(null)
 
+  useScrollLock(isOpen)
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
     }
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', handleKeyDown)
-    } else {
-      document.body.style.overflow = ''
     }
     return () => {
-      document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [isOpen, onClose])
@@ -132,6 +131,7 @@ export function GitHubImportModal({
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          data-lenis-prevent
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -239,7 +239,7 @@ export function GitHubImportModal({
                   </div>
                 )}
 
-                <div className="flex-1 overflow-y-auto pr-1 space-y-2.5 min-h-[240px] max-h-[420px]">
+                <div className="flex-1 overflow-y-auto overscroll-contain pr-1 space-y-2.5 min-h-[240px] max-h-[420px]">
                   {loadingRepos ? (
                     <div className="h-48 flex flex-col items-center justify-center text-[#888890] gap-2 font-mono text-xs">
                       <Loader2 className="w-5 h-5 animate-spin text-white" />
@@ -325,7 +325,7 @@ export function GitHubImportModal({
 
             {/* Tab 2: Paste Repo URL */}
             {activeTab === 'url' && (
-              <div className="space-y-4 overflow-y-auto pr-1">
+              <div className="space-y-4 overflow-y-auto overscroll-contain pr-1">
                 <form onSubmit={handleFetchByUrl} className="flex gap-2">
                   <div className="relative flex-1">
                     <Link2 className="w-4 h-4 text-[#888890] absolute left-3.5 top-1/2 -translate-y-1/2" />

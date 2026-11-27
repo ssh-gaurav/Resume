@@ -1,3 +1,4 @@
+import { useScrollLock } from '../../hooks/useScrollLock'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Send, CheckCircle2, Mail } from 'lucide-react'
@@ -17,18 +18,16 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     message: '',
   })
 
+  useScrollLock(isOpen)
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
     }
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', handleKeyDown)
-    } else {
-      document.body.style.overflow = ''
     }
     return () => {
-      document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [isOpen, onClose])
@@ -46,6 +45,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          data-lenis-prevent
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -56,7 +56,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.94, opacity: 0, y: 15 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-lg bg-[#0d0d0f] border border-white/15 p-6 sm:p-8 rounded-2xl shadow-2xl text-white"
+            className="relative max-h-[90dvh] overflow-y-auto overscroll-contain w-full max-w-lg bg-[#0d0d0f] border border-white/15 p-6 sm:p-8 rounded-2xl shadow-2xl text-white"
           >
             {/* Close button */}
             <button

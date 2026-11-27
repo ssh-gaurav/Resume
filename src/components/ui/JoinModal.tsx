@@ -1,3 +1,4 @@
+import { useScrollLock } from '../../hooks/useScrollLock'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, FileText, CheckCircle2, Download, Mail, ExternalLink } from 'lucide-react'
@@ -24,18 +25,16 @@ export function JoinModal({ isOpen, onClose }: JoinModalProps) {
     roleOrProject: '',
   })
 
+  useScrollLock(isOpen)
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
     }
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', handleKeyDown)
-    } else {
-      document.body.style.overflow = ''
     }
     return () => {
-      document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [isOpen, onClose])
@@ -53,6 +52,7 @@ export function JoinModal({ isOpen, onClose }: JoinModalProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          data-lenis-prevent
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -63,7 +63,7 @@ export function JoinModal({ isOpen, onClose }: JoinModalProps) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.94, opacity: 0, y: 15 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-2xl bg-[#0c0d10] border border-white/15 p-6 sm:p-10 rounded-2xl shadow-2xl text-white max-h-[90vh] overflow-y-auto"
+            className="relative w-full max-w-2xl bg-[#0c0d10] border border-white/15 p-6 sm:p-10 rounded-2xl shadow-2xl text-white max-h-[90vh] overflow-y-auto overscroll-contain"
           >
             {/* Close button */}
             <button

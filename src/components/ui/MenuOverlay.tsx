@@ -1,3 +1,4 @@
+import { useScrollLock } from '../../hooks/useScrollLock'
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowUpRight, Globe, Terminal, Sparkles, Mail } from 'lucide-react'
@@ -20,18 +21,16 @@ const menuItems = [
 ]
 
 export function MenuOverlay({ isOpen, onClose, onNavigate }: MenuOverlayProps) {
+  useScrollLock(isOpen)
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
     }
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', handleKeyDown)
-    } else {
-      document.body.style.overflow = ''
     }
     return () => {
-      document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [isOpen, onClose])
@@ -40,11 +39,12 @@ export function MenuOverlay({ isOpen, onClose, onNavigate }: MenuOverlayProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          data-lenis-prevent
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-50 bg-[#050505]/95 backdrop-blur-2xl flex flex-col justify-between p-6 md:p-12 text-white selection:bg-white selection:text-black overflow-y-auto"
+          className="fixed inset-0 z-50 bg-[#050505]/95 backdrop-blur-2xl flex flex-col justify-between p-6 md:p-12 text-white selection:bg-white selection:text-black overflow-y-auto overscroll-contain"
         >
           {/* Header row */}
           <div className="flex items-center justify-between border-b border-white/10 pb-6">

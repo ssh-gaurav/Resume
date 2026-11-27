@@ -39,6 +39,12 @@ export function App() {
       autoRaf: false,
     })
 
+    const stopScroll = () => lenis.stop()
+    const startScroll = () => lenis.start()
+    window.addEventListener('overlay-scroll-lock', stopScroll)
+    window.addEventListener('overlay-scroll-unlock', startScroll)
+    if (document.body.style.overflow === 'hidden') lenis.stop()
+
     lenisRef.current = lenis
 
     const handleScroll = () => {
@@ -59,6 +65,8 @@ export function App() {
     return () => {
       cancelAnimationFrame(rafId)
       window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('overlay-scroll-lock', stopScroll)
+      window.removeEventListener('overlay-scroll-unlock', startScroll)
       lenis.destroy()
       lenisRef.current = null
     }
