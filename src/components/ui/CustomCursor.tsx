@@ -52,14 +52,14 @@ export function CustomCursor() {
     <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
       {/* Central Sharp Glow Dot */}
       <div
-        className="fixed w-1.5 h-1.5 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_#ffffff]"
+        className="fixed w-1.5 h-1.5 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"
         style={{ left: `${pos.x}px`, top: `${pos.y}px` }}
       />
       {/* Outer Smooth Trailing Precision Ring */}
       <div
         className={`fixed rounded-full -translate-x-1/2 -translate-y-1/2 border transition-[width,height,background-color,border-color,transform] duration-200 ease-out ${
           isHovered
-            ? 'w-12 h-12 bg-white/10 border-white/80 shadow-[0_0_20px_rgba(255,255,255,0.2)]'
+            ? 'w-12 h-12 bg-white/10 border-white/80'
             : 'w-7 h-7 bg-white/[0.02] border-white/30'
         }`}
         style={{ left: `${trailingPos.x}px`, top: `${trailingPos.y}px` }}

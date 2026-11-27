@@ -80,7 +80,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <span className="font-mono text-[10px] tracking-[0.25em] text-[#BFC2C5] uppercase block mb-1">
-                    COMMUNICATION PROTOCOL // DIRECT
+                    Get in touch
                   </span>
                   <h3 className="font-display text-2xl font-light text-white">
                     LET'S CONNECT

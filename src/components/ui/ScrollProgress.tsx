@@ -26,7 +26,7 @@ export function ScrollProgress() {
       {/* Progress Track Line with glowing runner */}
       <div className="relative w-[2px] h-36 bg-white/10 rounded-full overflow-hidden">
         <div
-          className="absolute top-0 left-0 w-full bg-gradient-to-b from-white via-white/80 to-[#BFC2C5] transition-all duration-150 ease-out shadow-[0_0_8px_#ffffff]"
+          className="absolute top-0 left-0 w-full bg-gradient-to-b from-white via-white/80 to-[#BFC2C5] transition-all duration-150 ease-out"
           style={{ height: `${progress}%` }}
         />
       </div>

@@ -1,140 +1,20 @@
-import { Canvas } from '@react-three/fiber'
-import { motion } from 'framer-motion'
-import { NeuralNetwork3D } from '../3d/NeuralNetwork3D'
-import { Network, ShieldCheck, Zap } from 'lucide-react'
 import { personalProfile } from '../../data/resumeData'
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative w-full min-h-screen py-24 sm:py-32 px-6 sm:px-10 md:px-16 bg-[#050505] text-white border-t border-white/10 overflow-hidden">
-      {/* Subtle ambient grid and decorative crosshairs */}
-      <div className="absolute top-12 left-10 text-white/20 font-mono text-xs">+</div>
-      <div className="absolute top-12 right-10 text-white/20 font-mono text-xs">+</div>
-      <div className="absolute bottom-12 left-10 text-white/20 font-mono text-xs">+</div>
-
-      {/* Atmospheric subtle radial glow */}
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Tag */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="relative flex items-center justify-center">
-            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
-            <span className="absolute inset-0 rounded-full border border-white/40 animate-ping opacity-50" />
-          </div>
-          <span className="font-mono text-xs tracking-[0.3em] text-[#BFC2C5] uppercase">
-            02 // IDENTITY & PHILOSOPHY
-          </span>
+    <section id="about" className="px-6 sm:px-10 md:px-16 py-24 border-t border-white/10">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-20">
+        <div className="lg:col-span-4">
+          <p className="text-sm text-[#b3a58e] mb-5">01 / A little about me</p>
+          <h2 className="font-display text-4xl sm:text-5xl tracking-tight text-white leading-tight">Learning by<br />building things.</h2>
         </div>
-
-        {/* Oversized Headline */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-white uppercase max-w-5xl leading-[1.02] mb-12"
-        >
-          ARCHITECTING <br />
-          <span className="font-normal italic text-gradient">DIGITAL REALITIES.</span>
-        </motion.h2>
-
-        {/* Asymmetrical Grid: 3D Neural Network Simulation & Editorial Manifestos */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: 3D Neural Network Canvas with glowing ambient container */}
-          <div className="lg:col-span-6 relative h-[440px] sm:h-[520px] rounded-2xl border border-white/15 bg-[#090a0d] overflow-hidden group shadow-[0_0_50px_rgba(255,255,255,0.03)] hover:border-white/30 transition-all duration-500">
-            <div className="absolute top-4 left-5 z-10 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-white animate-pulse shadow-[0_0_8px_#ffffff]" />
-              <span className="font-mono text-[10px] tracking-widest text-[#BFC2C5] uppercase">
-                COGNITIVE TOPOLOGY // LIVE R3F
-              </span>
-            </div>
-
-            <div className="absolute bottom-4 right-5 z-10 font-mono text-[9px] text-[#777777] tracking-widest uppercase bg-black/40 px-2 py-0.5 rounded border border-white/5 backdrop-blur-sm">
-              SYNAPTIC GRAPH COMPUTATION
-            </div>
-
-            {/* Interactive 3D Canvas */}
-            <Canvas
-              camera={{ position: [0, 0, 7.2], fov: 45 }}
-              gl={{ antialias: true, alpha: true }}
-              className="w-full h-full cursor-grab active:cursor-grabbing"
-            >
-              <ambientLight intensity={0.6} />
-              <directionalLight position={[5, 10, 5]} intensity={1.8} color="#FFFFFF" />
-              <pointLight position={[0, 0, 2]} intensity={2.2} color="#E0E2E5" />
-              <NeuralNetwork3D position={[0, 0, 0]} scale={0.95} />
-            </Canvas>
+        <div className="lg:col-span-8 max-w-2xl">
+          <p className="text-xl sm:text-2xl leading-relaxed text-[#e0ddd5]">{personalProfile.bioShort}</p>
+          <p className="mt-6 text-base leading-8 text-[#a7a59e]">{personalProfile.bioDetailed}</p>
+          <div className="mt-12 grid grid-cols-2 gap-6 border-t border-white/15 pt-7">
+            <div><p className="text-white text-lg">Python &amp; FastAPI</p><p className="mt-2 text-sm text-[#a7a59e]">My usual starting point for backend projects.</p></div>
+            <div><p className="text-white text-lg">RAG &amp; machine learning</p><p className="mt-2 text-sm text-[#a7a59e]">What I am spending most of my time exploring.</p></div>
           </div>
-
-          {/* Right Column: Editorial Vision, Mission, Personal Bio */}
-          <div className="lg:col-span-6 flex flex-col justify-between space-y-8">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="space-y-4"
-            >
-              <h3 className="font-mono text-xs tracking-[0.25em] text-[#BFC2C5] uppercase flex items-center gap-2">
-                <Network className="w-3.5 h-3.5 text-white" />
-                ENGINEERING PROFILE
-              </h3>
-              <p className="text-base sm:text-lg text-[#D1D5DB] font-light leading-relaxed">
-                {personalProfile.bioShort}
-              </p>
-              <p className="text-sm text-[#9CA3AF] font-light leading-relaxed">
-                {personalProfile.bioDetailed}
-              </p>
-            </motion.div>
-
-            {/* Pillars with subtle glow and hover depth */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10">
-              <div className="p-5 rounded-xl border border-white/10 bg-[#0e0f13] hover:border-white/30 hover:bg-[#13141a] transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(255,255,255,0.05)]">
-                <Zap className="w-4 h-4 text-white mb-2" />
-                <h4 className="font-mono text-xs uppercase tracking-wider text-white mb-1">
-                  INTELLIGENCE SYSTEMS
-                </h4>
-                <p className="text-xs text-[#888890] leading-relaxed">
-                  End-to-end LLM fine-tuning, RAG retrieval pipelines, multi-agent frameworks, and real-time inference acceleration.
-                </p>
-              </div>
-
-              <div className="p-5 rounded-xl border border-white/10 bg-[#0e0f13] hover:border-white/30 hover:bg-[#13141a] transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(255,255,255,0.05)]">
-                <ShieldCheck className="w-4 h-4 text-white mb-2" />
-                <h4 className="font-mono text-xs uppercase tracking-wider text-white mb-1">
-                  FULL-STACK RESILIENCE
-                </h4>
-                <p className="text-xs text-[#888890] leading-relaxed">
-                  Type-safe scalable architectures with Next.js, React 19, distributed microservices, Docker, and low-latency databases.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Live Metrics Row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16 pt-12 border-t border-white/10">
-          {personalProfile.stats.map((stat, idx) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
-              className="flex flex-col border-l border-white/15 pl-5 hover:border-white transition-colors duration-300"
-            >
-              <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight">
-                {stat.value}
-              </span>
-              <span className="font-mono text-[11px] tracking-wider uppercase text-[#BFC2C5] mt-1">
-                {stat.label}
-              </span>
-              <span className="font-mono text-[9px] tracking-widest text-[#777777] uppercase mt-0.5">
-                {stat.metric}
-              </span>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>

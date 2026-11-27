@@ -23,7 +23,7 @@ export function Navbar({ onOpenMenu, onOpenTalk, onOpenResume }: NavbarProps) {
           className="group flex items-center gap-3 px-4 py-2 rounded-full bg-[#08080a]/80 backdrop-blur-xl border border-white/10 hover:border-white/30 transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
         >
           {/* Animated geometric insignia */}
-          <div className="w-2.5 h-2.5 bg-white rotate-45 group-hover:rotate-90 group-hover:scale-110 transition-all duration-500 shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+          <div className="w-2.5 h-2.5 bg-white rotate-45 group-hover:rotate-90 group-hover:scale-110 transition-all duration-500" />
           <span className="font-mono text-xs sm:text-sm font-semibold tracking-[0.25em] text-white uppercase">
             {personalProfile.name}
           </span>
@@ -40,7 +40,7 @@ export function Navbar({ onOpenMenu, onOpenTalk, onOpenResume }: NavbarProps) {
             className="hidden lg:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-white/10 bg-[#08080a]/80 backdrop-blur-xl"
           >
             <div className="relative flex items-center justify-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span className="absolute inset-0 rounded-full border border-emerald-400/40 animate-ping opacity-60" />
             </div>
             <span className="font-mono text-[10px] tracking-widest text-[#BFC2C5] uppercase">
@@ -62,7 +62,7 @@ export function Navbar({ onOpenMenu, onOpenTalk, onOpenResume }: NavbarProps) {
           {/* LET'S TALK button */}
           <button
             onClick={onOpenTalk}
-            className="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-white/95 text-black font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-300 hover:bg-white hover:scale-105 active:scale-95 shadow-[0_0_25px_rgba(255,255,255,0.18)] cursor-pointer"
+            className="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-white/95 text-black font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-300 hover:bg-white hover:scale-105 active:scale-95 cursor-pointer"
           >
             LET'S TALK
           </button>

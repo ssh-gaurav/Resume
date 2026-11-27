@@ -35,28 +35,26 @@ export interface PersonalProfile {
 }
 
 export const personalProfile: PersonalProfile = {
-  name: 'Gaurav Rajawat',
-  title: 'AI & FULL-STACK SOFTWARE ENGINEER',
+  name: 'Gaurav Singh Rajawat',
+  title: 'AI & ML STUDENT / DEVELOPER',
   subtitle: 'ARCHITECTING HIGH-PERFORMANCE INTELLIGENCE & DISTRIBUTED SYSTEMS',
   email: 'gauravsingh288393@gmail.com',
-  location: 'India // Open to Remote & Global Relocation',
-  availability: 'OPEN TO OPPORTUNITIES // READY TO INTERVIEW',
-  bioShort:
-    'Full-stack and AI software engineer with a deep passion for building high-throughput cloud architectures, generative AI pipelines, and immersive real-time 3D web applications.',
-  bioDetailed:
-    'I specialize in bridging cutting-edge machine learning models with production-grade engineering. From optimizing neural network inference to designing resilient microservices and low-latency frontend user experiences, I focus on building software that is fast, resilient, and beautifully designed.',
+  location: 'Gwalior, Madhya Pradesh, India',
+  availability: 'Open to internships and collaborations',
+  bioShort: 'I am studying Artificial Intelligence and Machine Learning at Madhav Institute of Science and Technology in Gwalior. I build research tools, machine learning experiments, and backend applications.',
+  bioDetailed: 'My recent work includes RogueAI, a RAG research application, and Rail Setu, a railway maintenance coordination platform. Outside projects, I practice data structures and algorithms in C++. I also enjoy running and fitness.',
   resumeUrl: '/resume.pdf',
   socials: {
     github: 'https://github.com/ssh-gaurav',
-    linkedin: 'https://linkedin.com/in/gaurav-rajawat',
+    linkedin: 'https://www.linkedin.com/in/gaurav-singh-rajawat-44213b378/',
     twitter: 'https://x.com',
     email: 'mailto:gauravsingh288393@gmail.com',
   },
   stats: [
-    { label: 'YEARS OF BUILDING', value: '3+', metric: 'CONTINUOUS CRAFT' },
-    { label: 'PRODUCTION PROJECTS', value: '20+', metric: 'DEPLOYED & LIVE' },
-    { label: 'CODE COMMITS', value: '1,500+', metric: 'OPEN SOURCE & LAB' },
-    { label: 'TECH STACK NODES', value: '24+', metric: 'LANGUAGES & TOOLS' },
+    { label: 'B.Tech AI & ML', value: '2029', metric: 'Expected graduation' },
+    { label: 'CGPA', value: '8.02', metric: 'Through first year' },
+    { label: 'Based in', value: 'Gwalior', metric: 'Madhya Pradesh' },
+    { label: 'Currently learning', value: 'AI / ML', metric: 'Through hands-on projects' },
   ],
 }
 
@@ -80,58 +78,10 @@ export interface ResumeProject {
 }
 
 export const resumeProjects: ResumeProject[] = [
-  {
-    id: 'agentic-ai-platform',
-    title: 'Aura Intelligence',
-    category: 'AUTONOMOUS MULTI-AGENT ORCHESTRATION',
-    description:
-      'High-throughput distributed multi-agent system orchestrating collaborative task execution, automated code synthesis, and retrieval-augmented reasoning with sub-20ms message bus propagation.',
-    techStack: ['TypeScript', 'Next.js', 'PyTorch', 'FastAPI', 'Redis', 'Docker'],
-    stats: '10k+ Concurrent Tasks // Sub-20ms Event Bus',
-    year: '2026',
-    link: 'https://github.com/ssh-gaurav',
-    github: 'https://github.com/ssh-gaurav',
-    visualStyle: 'bg-gradient-to-br from-[#1a1c22] via-[#101116] to-[#07080a]',
-  },
-  {
-    id: 'neural-3d-engine',
-    title: 'HyperSplat 3D',
-    category: 'REAL-TIME 3D & SPATIAL GAUSSIAN RADIANCE',
-    description:
-      'Interactive WebGL & WebGPU-accelerated spatial viewer rendering photorealistic 3D Gaussian Splats at 120 FPS directly in the browser with adaptive LOD octrees and zero lag.',
-    techStack: ['Three.js', 'WebGPU', 'GLSL', 'React 19', 'TypeScript', 'CUDA'],
-    stats: '120 FPS Rendering // 2.5M Gaussian Points',
-    year: '2025',
-    link: 'https://github.com/ssh-gaurav',
-    github: 'https://github.com/ssh-gaurav',
-    visualStyle: 'bg-gradient-to-br from-[#181a20] via-[#0e1014] to-[#060709]',
-  },
-  {
-    id: 'distributed-microservices',
-    title: 'NexusCore Gateway',
-    category: 'DISTRIBUTED SYSTEMS & INFRASTRUCTURE',
-    description:
-      'Resilient low-latency API gateway and distributed stream processor with automated rate-limiting, JWT authentication, gRPC interfaces, and Prometheus metric exporters.',
-    techStack: ['Node.js', 'Go', 'gRPC', 'PostgreSQL', 'Kafka', 'Kubernetes'],
-    stats: '99.99% Uptime // 35k RPS Peak Throughput',
-    year: '2025',
-    link: 'https://github.com/ssh-gaurav',
-    github: 'https://github.com/ssh-gaurav',
-    visualStyle: 'bg-gradient-to-br from-[#1d1f26] via-[#121319] to-[#07080a]',
-  },
-  {
-    id: 'generative-rag-engine',
-    title: 'OmniMind Search',
-    category: 'SEMANTIC VECTOR SEARCH & EMBEDDINGS',
-    description:
-      'Enterprise-grade RAG pipeline ingesting unstructured multimodal documentation into hybrid dense-sparse vector indexes with dynamic re-ranking and hallucination guardrails.',
-    techStack: ['Python', 'LangChain', 'Qdrant', 'FastAPI', 'Llama-3', 'Tailwind'],
-    stats: '94.8% Retrieval Precision // <150ms P95',
-    year: '2026',
-    link: 'https://github.com/ssh-gaurav',
-    github: 'https://github.com/ssh-gaurav',
-    visualStyle: 'bg-gradient-to-br from-[#191b22] via-[#0f1115] to-[#050608]',
-  },
+  {'id': 'rogueai', 'title': 'RogueAI', 'category': 'AI research application', 'description': 'A research assistant combining RAG, web search, webpage extraction, and document processing. Built a FastAPI backend and connected it to a React frontend.', 'techStack': ['Python', 'FastAPI', 'LangChain', 'Tavily', 'React'], 'stats': 'Jun - Aug 2026', 'year': '2026', 'link': 'https://github.com/ssh-gaurav', 'github': 'https://github.com/ssh-gaurav', 'visualStyle': 'bg-[#151613]'},
+  {'id': 'rail-setu', 'title': 'Rail Setu', 'category': 'Railway maintenance coordination', 'description': 'A platform for reporting railway maintenance issues and coordinating between field personnel and administrative teams, with WebSocket communication.', 'techStack': ['FastAPI', 'WebSockets', 'React'], 'stats': 'Aug - Sep 2026', 'year': '2026', 'link': 'https://github.com/ssh-gaurav', 'github': 'https://github.com/ssh-gaurav', 'visualStyle': 'bg-[#151613]'},
+  {'id': 'prediction', 'title': 'Insurance & Heart Disease Prediction', 'category': 'Machine learning', 'description': 'Regression and classification experiments covering preprocessing, feature engineering, model evaluation, and hyperparameter tuning.', 'techStack': ['Python', 'Pandas', 'Scikit-learn', 'Matplotlib'], 'stats': 'Jan - Apr 2026', 'year': '2026', 'link': 'https://github.com/ssh-gaurav', 'github': 'https://github.com/ssh-gaurav', 'visualStyle': 'bg-[#151613]'},
+  {'id': 'schnorr', 'title': 'Schnorr Digital Signatures', 'category': 'Cryptography', 'description': 'Implemented key generation, signing, and verification with modular arithmetic in SageMath.', 'techStack': ['Python', 'SageMath', 'Jupyter'], 'stats': 'Jan - May 2026', 'year': '2026', 'link': 'https://github.com/ssh-gaurav', 'github': 'https://github.com/ssh-gaurav', 'visualStyle': 'bg-[#151613]'},
 ]
 
 /* ==========================================================================
@@ -317,43 +267,12 @@ export interface EducationOrHonor {
 
 export const educationAndHonors: EducationOrHonor[] = [
   {
-    id: 'degree-cs',
-    title: 'Bachelor of Technology in Computer Science',
-    institution: 'University Engineering Institute',
-    periodOrYear: 'Graduated / Senior Cohort',
+    id: 'degree-ai-ml',
+    title: 'B.Tech in Artificial Intelligence & Machine Learning',
+    institution: 'Madhav Institute of Science and Technology',
+    periodOrYear: '2025 - 2029',
     category: 'EDUCATION',
-    description:
-      'Comprehensive curriculum encompassing Distributed Systems, Neural Networks, Database Architecture, Discrete Mathematics, and Compiler Design. Graduated with high honors.',
-    badge: 'B.TECH CSE',
-  },
-  {
-    id: 'cert-cloud',
-    title: 'Cloud & Solutions Architecture Certified',
-    institution: 'AWS / Cloud Computing Specialist',
-    periodOrYear: '2025',
-    category: 'CERTIFICATION',
-    description:
-      'Certified proficiency in designing highly available, fault-tolerant, cost-optimized distributed systems and automated serverless architectures.',
-    badge: 'SOLUTIONS ARCHITECT',
-  },
-  {
-    id: 'cert-deeplearning',
-    title: 'Deep Learning & Neural Networks Specialization',
-    institution: 'DeepLearning.AI / Coursera',
-    periodOrYear: '2024',
-    category: 'CERTIFICATION',
-    description:
-      'Rigorous mastery of backpropagation calculus, Convolutional Networks, Transformer Attention, Sequence Modeling, and Hyperparameter Optimization.',
-    badge: 'DL SPECIALIST',
-  },
-  {
-    id: 'award-coding',
-    title: 'Competitive Coding & Algorithmic Excellence',
-    institution: 'LeetCode & Competitive Programming Forums',
-    periodOrYear: '2024 — 2026',
-    category: 'HONOR',
-    description:
-      'Solved 600+ algorithmic and data structure problems with top percentile ratings across dynamic programming, graph traversal, and bitwise optimization.',
-    badge: 'TOP 5% RATING',
+    description: 'Gwalior, Madhya Pradesh. CGPA: 8.02 through first year.',
+    badge: 'IN PROGRESS',
   },
 ]

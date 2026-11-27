@@ -23,11 +23,11 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
         {/* Top Tag */}
         <div className="flex items-center gap-3 mb-8">
           <div className="relative flex items-center justify-center">
-            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white" />
             <span className="absolute inset-0 rounded-full border border-white/40 animate-ping opacity-60" />
           </div>
           <span className="font-mono text-xs tracking-[0.3em] text-[#BFC2C5] uppercase">
-            07 // INITIATE COLLABORATION
+            07 // Get in touch
           </span>
         </div>
 
@@ -39,10 +39,10 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.9 }}
           >
-            <h2 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tight text-white uppercase leading-[0.98] max-w-6xl">
-              LET'S BUILD <br />
-              SOMETHING REMARKABLE. <br />
-              <span className="font-normal italic text-gradient">HIRE OR CONNECT.</span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[0.98] max-w-6xl">
+              Have a project <br />
+              in mind? <br />
+              <span className="font-normal text-[#c5b79c]">Let’s talk.</span>
             </h2>
           </motion.div>
 
@@ -56,9 +56,9 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
           >
             <button
               onClick={onOpenJoin}
-              className="group px-8 sm:px-12 py-4 sm:py-5 rounded-full bg-white text-black font-mono text-sm font-semibold tracking-widest uppercase flex items-center gap-4 transition-all duration-300 hover:bg-[#E5E7EB] hover:scale-105 active:scale-95 shadow-[0_0_50px_rgba(255,255,255,0.25),0_0_100px_rgba(255,255,255,0.1)] cursor-pointer"
+              className="group px-8 sm:px-12 py-4 sm:py-5 rounded-full bg-white text-black font-mono text-sm font-semibold tracking-widest uppercase flex items-center gap-4 transition-all duration-300 hover:bg-[#E5E7EB] hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <span>GET RESUME // HIRE ME</span>
+              <span>Resume & contact</span>
               <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
             </button>
 
@@ -81,13 +81,13 @@ export function JoinSection({ onOpenJoin, onNavigate }: JoinSectionProps) {
           {/* Left: Brand & Statement */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-2.5 h-2.5 bg-white rotate-45 shadow-[0_0_8px_#ffffff]" />
+              <div className="w-2.5 h-2.5 bg-white rotate-45" />
               <span className="font-mono text-sm font-semibold tracking-[0.25em] text-white uppercase">
                 {personalProfile.name} // PORTFOLIO
               </span>
             </div>
             <p className="text-xs text-[#9CA3AF] max-w-sm font-light leading-relaxed">
-              AI & Full-Stack Software Engineer crafting scalable cloud platforms, intelligent neural pipelines, and interactive 3D web experiences.
+              AI & ML student at MITS Gwalior. Building research tools, backend applications, and this little corner of the web.
             </p>
             <p className="font-mono text-[10px] tracking-widest text-[#BFC2C5] uppercase">
               {personalProfile.location}
