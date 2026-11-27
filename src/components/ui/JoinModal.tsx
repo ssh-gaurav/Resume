@@ -87,26 +87,25 @@ export function JoinModal({ isOpen, onClose }: JoinModalProps) {
               <div>
                 {/* Header Tag */}
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="font-mono text-[10px] tracking-[0.25em] text-[#BFC2C5] uppercase">
-                    RESUME DOSSIER // HIRE INQUIRY
+                    Resume & contact
                   </span>
                 </div>
 
                 <h2 className="font-display text-2xl sm:text-3xl font-light text-white uppercase tracking-tight">
-                  GET RESUME & WORK TOGETHER
+                  Let’s work on something.
                 </h2>
 
                 <p className="text-xs sm:text-sm text-[#9CA3AF] font-light mt-2 leading-relaxed">
-                  Download my official CV, explore my technical repositories, or submit a role or project opportunity directly.
+                  Download my resume, take a look at my code, or get in touch about an internship or project.
                 </p>
 
                 {/* Direct Action Bar: Download PDF & GitHub */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6 pt-4 border-t border-white/10">
                   <a
                     href={personalProfile.resumeUrl}
-                    target="_blank"
-                    rel="noreferrer"
+                    download="Gaurav-Rajawat-Resume.pdf"
                     className="p-3.5 rounded-xl border border-white/20 bg-white/5 hover:bg-white hover:text-black transition-all flex items-center justify-between group cursor-pointer"
                   >
                     <div className="flex items-center gap-2.5">
@@ -157,7 +156,7 @@ export function JoinModal({ isOpen, onClose }: JoinModalProps) {
                         onClick={() => setSelectedType(type.id)}
                         className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                           selectedType === type.id
-                            ? 'bg-white/10 border-white text-white shadow-[0_0_15px_rgba(255,255,255,0.08)]'
+                            ? 'bg-white/10 border-white text-white'
                             : 'bg-white/[0.02] border-white/10 text-[#888890] hover:border-white/30'
                         }`}
                       >
@@ -241,7 +240,7 @@ export function JoinModal({ isOpen, onClose }: JoinModalProps) {
 
                     <button
                       type="submit"
-                      className="w-full sm:w-auto px-8 py-3 rounded-full bg-white text-black font-mono text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#E5E7EB] transition-all cursor-pointer active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                      className="w-full sm:w-auto px-8 py-3 rounded-full bg-white text-black font-mono text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#E5E7EB] transition-all cursor-pointer active:scale-95"
                     >
                       <span>SUBMIT INQUIRY</span>
                     </button>
