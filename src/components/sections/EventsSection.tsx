@@ -1,3 +1,5 @@
+import { LeetCodeActivity } from '../ui/LeetCodeActivity'
+
 export function EventsSection() {
   return (
     <section id="events" className="py-20 sm:py-24 px-6 sm:px-10 md:px-16 border-t border-white/10">
@@ -9,6 +11,7 @@ export function EventsSection() {
           <a href="mailto:gauravsingh288393@gmail.com" className="inline-block text-[#d0c3ac] border-b border-[#d0c3ac]/50">Get in touch about an opportunity</a>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto"><LeetCodeActivity /></div>
     </section>
   )
 }
